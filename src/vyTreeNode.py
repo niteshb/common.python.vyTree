@@ -41,15 +41,17 @@ class VyTreeNode():
         childNode.__parent = self
         childNode.__level = self.level + 1
 
-    def __getattr__(self, attr):
-        if attr == 'firstchild':
+    @property
+    def isFirstChild(self):
             if self.parent == None:
                 return True
             elif self.parent.childNodes[0] == self:
                 return True
             else:
                 return False
-        elif attr == 'lastchild':
+
+    @property
+    def isLastChild(self):
             if self.parent == None:
                 return True
             elif self.parent.childNodes[-1] == self:
