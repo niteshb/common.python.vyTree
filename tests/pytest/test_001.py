@@ -2,7 +2,7 @@ import pytest
 from vyTree import VyTreeDataLevelNode
 
 def test_001():
-    root = VyTreeDataLevelNode(0)
+    root = VyTreeDataLevelNode(data=0)
     assert(root.childNodes == [])
     assert(root.level == 0)
     assert(root.hasChildren == False)
@@ -17,7 +17,7 @@ def test_001():
     assert(root.data == 0)
     
     # add a child
-    child0 = VyTreeDataLevelNode(1)
+    child0 = VyTreeDataLevelNode(data=1)
     assert(child0.childNodes == [])
     assert(child0.level == 0)
     assert(child0.hasChildren == False)
@@ -36,7 +36,7 @@ def test_001():
     assert(child0.data == 1)
 
     # add another child
-    child1 = VyTreeDataLevelNode(2)
+    child1 = VyTreeDataLevelNode(data=2)
     root.appendChildNode(child1)
     assert(root.childNodes[0] is child0)
     assert(root.childNodes[1] is child1)
@@ -45,7 +45,7 @@ def test_001():
     assert(child1.data == 2)
 
     # insert a child in the beginning
-    child2 = VyTreeDataLevelNode(3)
+    child2 = VyTreeDataLevelNode(data=3)
     root.insertChildNode(0, child2)
     assert(root.childNodes[0] is child2)
     assert(root.childNodes[1] is child0)
@@ -56,9 +56,9 @@ def test_001():
     assert(root.childNodes[2].data == 2)
 
     # insert a child with a children
-    child3 = VyTreeDataLevelNode(4)
-    gchild0 = VyTreeDataLevelNode(5)
-    gchild1 = VyTreeDataLevelNode(6)
+    child3 = VyTreeDataLevelNode(data=4)
+    gchild0 = VyTreeDataLevelNode(data=5)
+    gchild1 = VyTreeDataLevelNode(data=6)
     assert(child3.level == 0)
     assert(gchild0.level == 0)
     assert(gchild1.level == 0)

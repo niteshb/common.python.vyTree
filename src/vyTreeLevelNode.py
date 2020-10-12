@@ -1,9 +1,9 @@
 from .vyTreeNode import VyTreeNode
 
 class VyTreeLevelNode(VyTreeNode):
-    def __init__(self):
-        super().__init__()
-        self.__level = 0
+    def __init__(self, level=0, **kwrags):
+        super().__init__(**kwrags)
+        self.__level = level
 
     @property
     def level(self):
